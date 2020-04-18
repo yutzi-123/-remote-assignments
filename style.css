@@ -1,0 +1,182 @@
+/*decoration*/
+
+*{
+  /*border: 3px solid lightgrey;*/
+  font-family: "Times New Roman", Times, serif;
+}
+
+body{
+  margin: 0px;
+  background-color: white;
+}
+
+nav{
+  background-color: #DEE0EB;
+}
+
+header{
+  text-align: center;
+  padding: 90px;
+  background-color: #D1D8F9;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+h3{
+  text-align: center;
+  font-size: 25px;
+}
+
+p{
+  font-size: 15px;
+  background-color: #8B8D9C;
+  
+}
+
+.menu{
+
+  width: 20px;
+
+}
+
+
+/*layout basic*/
+
+nav{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+
+.btn{
+  display: inline-block;
+  padding: 5px 0px;
+  margin: 20px 0px;
+  width: 200px;
+  background-color: #B8E6E8;
+  font-size: 20px;
+}
+
+  ul{
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0px;
+    border: none;
+}
+
+  li{
+    margin-left: 30px;
+    
+  }
+
+
+
+/*layout<500px*/
+@media screen and (max-width:500px){
+
+.content-block{
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+p{
+  width: 80%;
+  height: 200px;
+}
+  
+    ul{
+    display: none;
+  }
+
+}/*end of layout <500px*/
+
+/*layout<800px*/
+@media screen and (min-width: 500px) and (max-width: 800px){
+   
+
+  
+.content-block{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45% 45% ;
+  grid-template-rows: 200px 200px; /*如果把btn的高度加進來，就會超出container框框*/ 
+  grid-gap: 10px 10px;
+  justify-content: center;
+}
+  
+  
+  p{
+    margin: 0px;
+  }
+  
+    ul{
+    display: none;
+  }
+  
+  
+  
+}/*end of layout <800px*/
+
+@media screen and (min-width: 800px) and (max-width: 1200px){
+     
+.content-block{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45% 45% ;
+  grid-template-rows: 200px 200px; 
+  grid-gap: 3% 2.5%; /*會超出框框，但不是應該是元素把框撐開嗎？*/ 
+  justify-content: center;
+}
+  
+  
+  p{
+    margin: 0px;
+  }
+  
+   .menu{
+    display: none;
+  }
+  
+ 
+  
+  .btn{
+    margin: 30px 0px 20px;
+  }
+  
+}/*end of layout <1200px*/
+
+
+@media screen and (min-width: 1200px){
+  
+.content-block{
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 45% 45% ;
+  grid-template-rows: 200px 200px; 
+  grid-gap: 3% 2.5%; /*會超出框框，但不是應該是元素把框撐開嗎？*/ 
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  
+  p{
+    margin: 0px;
+  }
+  
+   .menu{
+    display: none;
+  }
+  
+ 
+  
+  .btn{
+    margin: 30px 0px 20px;
+  }  
+ 
+}
