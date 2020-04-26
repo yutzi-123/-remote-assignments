@@ -1,5 +1,5 @@
 /*When user click on "Welcome Message" block, change text to "Have a Good Time!".*/
-const welcomeMsg = document.querySelector('header')
+const welcomeMsg = document.querySelector('.header')
 welcomeMsg.addEventListener('click',function (){
   welcomeMsg.innerHTML = `Have a Good Time!`
   
