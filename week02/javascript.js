@@ -114,5 +114,28 @@ btn.addEventListener('click',function(){
 })
 
 
+/*Assignment 5*/
+function  twoSum(nums, target){
+let count = nums.length
+let index = [ ]
+  
+for(let i=0;i<count;i++){
+  for(let j=i+1;j<count;j++){
+    
+    if(nums[i]+nums[j]===target){
+      index.push(i)
+      index.push(j)
+      
+    }//end of if
+    
+  }//end of for loop
+  
+}//end of for loop
+return index
+  
+}//end of function
+
+console.log(twoSum([2, 7, 11, 15], 9))
+
 
 
