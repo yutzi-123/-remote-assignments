@@ -1,0 +1,213 @@
+/*decoration*/
+
+*{
+  /*border: 3px solid lightgrey;*/
+  font-family: "Times New Roman", Times, serif;
+}
+
+body{
+  margin: 0px;
+  background-color: white;
+}
+
+.hiddenMenu{
+    background-color: white;
+    width: 300px;
+    height: 100%;
+    text-align: left;
+    box-shadow: -3px -3px 4px grey;
+    display: none;
+    
+}
+
+.hiddenList{
+  list-style: none;
+  font-size: 25px;
+}
+
+.hiddenList li{
+  margin: 20px 0px;
+}
+.X{
+  float: right;
+  font-size: 35px;
+  margin: 5px 10px;
+}
+
+nav{
+  background-color: #DEE0EB;
+}
+
+header{
+  text-align: center;
+  padding: 90px;
+  background-color: #D1D8F9;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+h3, .hiddenBox{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.hiddenBox{
+  margin: 0px 0px 70px;
+  display: none;
+}
+
+p{
+  font-size: 15px;
+  background-color: #8B8D9C;
+  
+}
+
+
+
+/*layout basic*/
+
+.hiddenMenu{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+nav{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+
+.btn{
+  display: inline-block;
+  padding: 5px 0px;
+  margin: 20px 0px;
+  width: 200px;
+  background-color: #B8E6E8;
+  font-size: 20px;
+}
+
+  .list{
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0px;
+    border: none;
+}
+
+  .list li{
+    margin-left: 30px;
+    
+  }
+
+
+
+/*layout<500px*/
+@media screen and (max-width:500px){
+
+.content-block{
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+p{
+  width: 80%;
+  height: 200px;
+}
+  
+    .list{
+    display: none;
+  }
+
+}/*end of layout <500px*/
+
+/*layout<800px*/
+@media screen and (min-width: 500px) and (max-width: 800px){
+   
+
+  
+.content-block{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45% 45% ;
+  grid-template-rows: 200px 200px; /*如果把btn的高度加進來，就會超出container框框*/ 
+  grid-gap: 10px 10px;
+  justify-content: center;
+}
+  
+  
+  p{
+    margin: 0px;
+  }
+  
+    .list{
+    display: none;
+  }
+  
+  
+  
+}/*end of layout <800px*/
+
+@media screen and (min-width: 800px) and (max-width: 1200px){
+     
+.content-block{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45% 45% ;
+  grid-template-rows: 200px 200px; 
+  grid-gap: 3% 2.5%; /*會超出框框，但不是應該是元素把框撐開嗎？*/ 
+  justify-content: center;
+}
+  
+  
+  p{
+    margin: 0px;
+  }
+  
+   .menu{
+    display: none;
+  }
+  
+ 
+  
+  .btn{
+    margin: 30px 0px 20px;
+  }
+  
+}/*end of layout <1200px*/
+
+
+@media screen and (min-width: 1200px){
+  
+.content-block{
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 45% 45% ;
+  grid-template-rows: 200px 200px; 
+  grid-gap: 3% 2.5%; /*會超出框框，但不是應該是元素把框撐開嗎？*/ 
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  
+  p{
+    margin: 0px;
+  }
+  
+   .menu{
+    display: none;
+  }
+  
+ 
+  
+  .btn{
+    margin: 28px 0px 20px;
+  }  
+ 
+}
