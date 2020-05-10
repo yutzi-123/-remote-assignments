@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sum the Integers from 1 to N</title>
+  <script type= "text/javascript" >
+
+    function getData(inputNum){
+      var req = new XMLHttpRequest();
+      req.open("get",`http://localhost:3000/getData?number=${inputNum}`)
+      req.onload = function(){
+        let answer = document.querySelector('#answer')
+        answer.innerHTML = this.responseText;
+      }
+      req.send();
+    }
+
+    function getNum(){
+      let number = document.getElementById("input").value
+      return number
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <div style="margin:10px 20px;">
+    <h2>Enter an integer : </h2>
+    <input type="number" id="input">
+    <input type="submit" onclick="getData(getNum())" value="Enter" id="enterBtn">
+  </div>
+
+  <div style="margin:50px 20px 10px;">
+    Sum of numbers within range is <strong id="answer"></strong>
+  </div>
+
+</body>
+</html>
+
