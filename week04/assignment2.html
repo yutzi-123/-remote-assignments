@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--js-->
+  <script type="text/javascript">
+   let data
+
+    /*ajax get*/
+
+    function ajax(src, callback) {
+
+      var req = new XMLHttpRequest();
+      req.open("get", src)
+      req.onload = function () {
+        data = JSON.parse(this.response)
+        callback(data)
+      }
+      req.send();
+    }
+
+
+    /*render data*/
+    function render(data) {
+      for (i = 0; i < data.length; i++) {
+        let description = data[i].description
+        let name = data[i].name
+        let price = data[i].price
+        createCard(name, price, description)
+      }
+    }
+
+
+    /*create element*/
+    function createCard(name, price, description) {
+      let card = document.createElement('div');
+      let title = document.createElement('h3');
+      let titleContent = document.createTextNode(name);
+      let subtitle = document.createElement('h4');
+      let subtitleContent = document.createTextNode(`NTD ${price}`)
+      let p = document.createElement('p');
+      let pContent = document.createTextNode(description)
+
+      document.body.appendChild(card)
+      card.appendChild(title)
+      title.appendChild(titleContent)
+      card.appendChild(subtitle)
+      subtitle.appendChild(subtitleContent)
+      card.appendChild(p)
+      p.appendChild(pContent)
+
+    }
+
+    /*call function*/
+    ajax("https://cwpeng.github.io/live-records-samples/data/products.json", function (response) {
+      render(response);
+    }); 
+
+  </script>
+
+  <!--CSS-->
+  <style type="text/css">
+
+  div{
+  border: 1px solid #D9D9D6;
+  margin: 20px 10px 0px;
+  border-radius:10px;
+  background-color: #eef5f6;
+}
+
+h3,h4,p{
+  margin: 10px;
+  text-align: center;  
+  color: #407294;
+}
+
+  </style>
+
+
+</head>
+<body>
+  
+</body>
+</html>
