@@ -5,7 +5,8 @@ class Body extends React.Component{
     super(props);
     this.state = {
       textValue: "Welcome Message",
-      menuDisplay: 'none'
+      Display: 'none',
+      contentDisplay: 'none'
     }
   }
 
@@ -28,20 +29,24 @@ class Body extends React.Component{
       <section>
         <h3>Section Title</h3>
         <List style="content-block" content="contentbox" style2="p" />
-        <div className='btn'>Call to Aciton
+        <div className='btn' onClick={this.clickHideContent.bind(this)} >Call to Aciton
     </div>
       </section>
 
      {/*hidden menu panel*/} 
       <div className='hiddenMenu' style={
-        {display: this.state.menuDisplay}
+        {display: this.state.Display}
       }>
         <div className='X' onClick={this.clickHideMenu.bind(this)}>X</div>
         <List style="hiddenList" content="item"/>
       </div>
 
       {/*hidden box*/} 
-      
+      <section style={
+        { display: this.state.contentDisplay }
+      }>
+        <List style="content-block" content="contentbox" style2="p" />
+      </section>
       
 
     {/*render end tag*/} 
@@ -55,15 +60,17 @@ class Body extends React.Component{
 
   clickShowMenu(e) {
     console.log('clicked!')
-    this.setState({ menuDisplay: 'inline-block' })
+    this.setState({ Display: 'inline-block' })
   }
 
   clickHideMenu(e) {
     console.log('clicked!')
-    this.setState({ menuDisplay: 'none'})
+    this.setState({ Display: 'none'})
   }
 
-  
+  clickHideContent(e) {
+    this.setState({ contentDisplay: 'block'})
+  }
 }
 
 /*list class*/
