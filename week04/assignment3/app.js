@@ -3,8 +3,12 @@ class Body extends React.Component{
 
   constructor(props) {
     super(props);
-    this.state = ({ textValue:"Welcome Message"})
+    this.state = {
+      textValue: "Welcome Message",
+      menuDisplay: 'none'
+    }
   }
+
 
   render() {
     return <div>
@@ -19,7 +23,7 @@ class Body extends React.Component{
       {/*sectino area*/} 
 
       <header onClick={this.clickChangeText.bind(this)}>
-      {this.state.textValue}
+        {this.state.textValue}
     </header>
       <section>
         <h3>Section Title</h3>
@@ -29,10 +33,15 @@ class Body extends React.Component{
       </section>
 
      {/*hidden menu panel*/} 
-      <div className='hiddenMenu' style={{display:"none"}}>
-      <div className='X'>X</div>
+      <div className='hiddenMenu' style={
+        {display: this.state.menuDisplay}
+      }>
+        <div className='X' onClick={this.clickHideMenu.bind(this)}>X</div>
         <List style="hiddenList" content="item"/>
       </div>
+
+      {/*hidden box*/} 
+      
       
 
     {/*render end tag*/} 
@@ -46,7 +55,12 @@ class Body extends React.Component{
 
   clickShowMenu(e) {
     console.log('clicked!')
-    this.setState({ textValue: "Have a Good Time!" });
+    this.setState({ menuDisplay: 'inline-block' })
+  }
+
+  clickHideMenu(e) {
+    console.log('clicked!')
+    this.setState({ menuDisplay: 'none'})
   }
 
   
