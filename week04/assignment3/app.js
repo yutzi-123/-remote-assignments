@@ -1,53 +1,76 @@
-const nav = (
-  <nav>
-    <div>Website Title / Logo</div>
-    <div className='menu'>menu</div>
-    <ul className='list'>
-      <li>item 1</li>
-      <li>item 2</li>
-      <li>item 3</li>
-      <li>item 4</li>
-    </ul>
-  </nav>
-);
+/*body class*/
+class Body extends React.Component{
 
-const header = (
-  <header className="header">
-    Welcome Message
-</header>
-);
+  constructor(props) {
+    super(props);
+    this.state = ({ textValue:"Welcome Message"})
+  }
 
+  render() {
+    return <div>
+      {/*nav bar*/} 
 
-const section = (
-  <section>
-    <h3>Section Title</h3>
-    <div className='content-block'>
-      <p className='p1'>contentbox 1</p>
-      <p className='p2'>contentbox 2</p>
-      <p className='p3'>contentbox 3</p>
-      <p className='p4'>contentbox 4</p>
+     <nav>
+      <div>Website Title / Logo</div>
+        <div className='menu' onClick={this.clickShowMenu.bind(this)}>menu</div>
+       <List style="list" content="item"/>
+      </nav>
+      
+      {/*sectino area*/} 
+
+      <header onClick={this.clickChangeText.bind(this)}>
+      {this.state.textValue}
+    </header>
+      <section>
+        <h3>Section Title</h3>
+        <List style="content-block" content="contentbox" style2="p" />
+        <div className='btn'>Call to Aciton
     </div>
-    <div className='btn'>Call to Aciton</div>
-  </section>
+      </section>
 
-);
+     {/*hidden menu panel*/} 
+      <div className='hiddenMenu' style={{display:"none"}}>
+      <div className='X'>X</div>
+        <List style="hiddenList" content="item"/>
+      </div>
+      
 
-{/*hidden*/ }
+    {/*render end tag*/} 
+    </div>
+  }
+
+  clickChangeText(e) {
+    console.log('clicked!')
+    this.setState({ textValue:"Have a Good Time!"});
+    }
+
+  clickShowMenu(e) {
+    console.log('clicked!')
+    this.setState({ textValue: "Have a Good Time!" });
+  }
+
+  
+}
+
+/*list class*/
+class List extends React.Component{
+  render() {
+    return <ul className={this.props.style}>
+      <li className={this.props.style2}>{this.props.content} 1</li>
+      <li className={this.props.style2}>{this.props.content} 2</li>
+      <li className={this.props.style2}>{this.props.content} 3</li>
+      <li className={this.props.style2}>{this.props.content} 4</li>
+    </ul>
+}
+
+}
 
 
 
+/*組建實體*/
+let Page = <Body />
 
-
-
-
-
-
+/*render到容器裡*/
 ReactDOM.render(
-  <div>
-    {nav}
-    {header}
-    {section}
-  </div>
-  ,
-  document.getElementById('root')
+  Page, document.getElementById('root')
 )
